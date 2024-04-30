@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+    <style>
+        h1{
+            color: #ff0099;
+            font-size: 3rem;
+        }
+        *{
+            
+            font-family: 'Gilroy',sans-serif;
+        }
+        .container{
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          text-align: center;
+        }
+        #disp {
+            background: linear-gradient(0deg, black, rgb(44, 102, 123));
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+            text-align: center;
+            align-items: center;
+            font-size: 3rem;
+            color: white;
+            border-radius: 50%;
+            position: relative;
+            margin-bottom: 40px;
+        }
+        #disp::before, #disp::after {
+            animation: move  20s linear infinite;
+            content: '';
+            
+            background: linear-gradient(45deg, #e6fb04, #00ff66, #00ffff, #ff00ff, #ff0099, #6e0dd0, #ff3300, #099fff);
+            position: absolute;
+            background-size: 400%;
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            z-index: -10;
+            border-radius: 60%;
+        }
+        @keyframes move {
+            0%{
+                background-position: 0 0;
+            }
+            50%{
+                background-position: 400% 0;
+            }
+            100%{
+                background-position: 0 0;
+            }
+        }
+        #disp::after{
+            filter: blur(40px);
+        }
+       #controls button{
+            padding: 10px 40px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background-color: orange;
+            color: white;
+            font-family: 'Gilroy',sans-serif;
+        }
+        #controls #start{
+            background-color: green;
+            color: white;
+            font-size: 1rem;
+        }
+        
+        #controls #stop{
+            background-color: red;
+            color: white;
+            font-size: 1rem;
+        }
+        
+        #controls #reset{
+            background-color: orange;
+            color: white;
+            font-size: 1rem;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>StopWatch using JS</h1>
+        <div id="disp">
+<p>00:00:00</p>
+        </div>
+        <div id="controls">
+<button id="start">Start</button>
+<button id="stop">Stop</button>
+<button id="reset">Reset</button>
+
+        </div>
+    </div>
+</body>
+</html>
